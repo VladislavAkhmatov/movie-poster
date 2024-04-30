@@ -8,6 +8,7 @@ class Routing
 
     public static function Route($uri, $file, $queryMethod = NULL)
     {
+
         self::$routes[] = [
             'uri' => $uri,
             'file' => $file,

@@ -1,47 +1,25 @@
-<div class="main-form col align-self-center">
-    <form action="/" method="post">
-        <div class="w-25 mx-auto">
+<!DOCTYPE html>
+<html lang="en">
 
-            <h2 class="text-center mb-4">Страница регистрации</h2>
-            <div class="form-group row mb-4">
-                <div class="col-sm-10 w-100">
-                    <input name="lastname" class="form-control" id="inputEmail3" placeholder="Фамилия" required>
-                </div>
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+<link rel="stylesheet" href="/../../css/style.css">
+</head>
 
-            <div class="form-group row mb-4">
-                <div class="col-sm-10 w-100">
-                    <input name="firstname" class="form-control" id="inputEmail3" placeholder="Имя" required>
-                </div>
-            </div>
-
-            <div class="form-group row mb-4">
-                <div class="col-sm-10 w-100">
-                    <input name="patronymic" class="form-control" id="inputEmail3" placeholder="Отчество">
-                </div>
-            </div>
-
-            <div class="form-group row mb-4">
-                <div class="col-sm-10 w-100">
-                    <input name="email" type="email" class="form-control" id="inputEmail3" placeholder="E-mail" required>
-                </div>
-            </div>
-
-            <div class="form-group row mb-4">
-                <div class="col-sm-10 w-100">
-                    <input name="pass" type="password" class="form-control" id="inputPassword3" placeholder="Пароль" required>
-                </div>
-            </div>
-
-            <div class="form-group row mb-4">
-                <div class="d-grid gap-2">
-                    <button name="register" type="submit" class="btn btn-primary">Зарегистрироваться</button>
-                </div>
-            </div>
-
-        </div>
+<body class="login-body">
+<div class="container">
+    <form action="/login" method="post" class="register-form">
+        <h2>Регистрация</h2>
+        <input type="text" name="lastname" placeholder="Введите Фамилию" required>
+        <input type="text" name="firstname" placeholder="Введите Имя" required>
+        <input type="text" name="patronymic" placeholder="Введите Отчество">
+        <input type="email" name="email" placeholder="Введите email" required>
+        <input type="password" name="pass" placeholder="Введите пароль" required>
+        <button type="submit" name="register" class="button-register">Зарегистрироваться</button>
+        <a href="login" type="button" class="button-back">Назад</a>
     </form>
 </div>
-
-
-
+</body>
+</html>

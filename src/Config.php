@@ -11,7 +11,7 @@ class Config
     public static function checkAuth(){
         if(isset($_POST['logout'])){
             session_destroy();
-            header('Location: /auth/login');
+            header('Location: auth/login');
             exit();
         }
     }

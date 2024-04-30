@@ -1,13 +1,28 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/../../public/css/style.css">
-    <link rel="stylesheet" href="/../../public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/../../public/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="/../../public/css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="/../../public/css/bootstrap-utilities.min.css">
-
-    <title><?= $_SERVER['REQUEST_URI'] ?></title>
+    <title>Главная</title>
+    <link rel="stylesheet" href="/../css/style.css">
 </head>
 <body>
+<div class="logo-container">
+    <div class="logo">
+        <img src="/../img/kino.png" alt="Логотип">
+    </div>
+    <?php if(isset($_SESSION['id'])): ?>
+        <h3>Здравствуйте, <?= $_SESSION['name'] ?></h3>
+        <form action="/" method="post">
+            <button name="logout" class="login-button">Выйти</button>
+        </form>
+    <?php else: ?>
+        <form action="/login" method="post">
+            <button name="logout" class="login-button">Войти</button>
+        </form>
+    <?php endif; ?>
+
+    <?php if($_SESSION['role'] == "admin" && $_SERVER['REQUEST_URI'] != "/film/create"): ?>
+        <a href="/film/create" name="create" class="login-button">Добавить фильм</a>
+    <?php endif; ?>
+</div>

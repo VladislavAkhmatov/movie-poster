@@ -1,25 +1,20 @@
-<div class="main-form">
-    <form action="/" method="post">
-        <div class="w-25 mx-auto">
-            <h2 class="text-center mb-4">Страница входа</h2>
-            <div class="form-group row mb-4">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                    <input name="email" type="email" class="form-control" id="inputEmail3" placeholder="E-mail" required>
-                </div>
-            </div>
-
-            <div class="form-group row mb-4">
-                <label for="inputPassword3" class="col-sm-2 col-form-label">Пароль</label>
-                <div class="col-sm-10">
-                    <input name="pass" type="password" class="form-control" id="inputPassword3" placeholder="Пароль" required>
-                </div>
-            </div>
-            <div class="form-group row mb-4">
-                <div class="d-grid gap-2">
-                    <button name="login" type="submit" class="btn btn-primary">Войти</button>
-                </div>
-            </div>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="login-body">
+<div class="container">
+    <form action="/" method="POST" class="login-form">
+        <h2>Авторизация</h2>
+        <input type="email" name="email" placeholder="Введите логин" required>
+        <input type="password" name="pass" placeholder="Введите пароль" required>
+        <button type="submit" name="login" class="button-login">Войти</button>
+        <a href="register" type="button" class="button-reg">Регистрация</a>
     </form>
 </div>
+</body>
+</html>

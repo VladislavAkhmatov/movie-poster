@@ -52,6 +52,7 @@ $films = Get::findFilmsByDate($_GET['date']);
                     <p>Войдите для покупки билета</p>
                 <?php endif; ?>
             </div>
-        </div>
     <?php endforeach; ?>
+
+    </div>
 <?php endif; ?>

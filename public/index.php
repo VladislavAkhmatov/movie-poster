@@ -19,7 +19,8 @@ require_once "../views/layout/header.php";
 Routing::Route('/', 'main/main', [Post::login(), Post::createFilm()]);
 if(isset($_SESSION['id'])){
     Routing::Route('/film', 'main/film');
-    Routing::Route('/film/ticket', 'main/ticket', [Post::buyTicket()]);
+    Routing::Route('/film/ticket', 'main/ticket');
+    Routing::Route('/film/mytickets', 'main/mytickets', [Post::buyTicket()]);
     if($_SESSION['role'] == "admin"){
         Routing::Route('/film/create', 'main/create');
     }

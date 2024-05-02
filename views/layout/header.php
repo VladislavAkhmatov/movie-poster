@@ -12,8 +12,15 @@
     <div class="back-kino">
         <div class="logo-container">
             <div class="logo">
+                <a href="/">
                 <img src="/img/kino.png" alt="Логотип">
+                </a>
             </div>
+            <?php if(isset($_SESSION['id'])): ?>
+            <div class="logo">
+                <a href="/film/mytickets" class="login-button">Мои билеты</a>
+            </div>
+            <?php endif; ?>
             <div class="btn-header">
                 <?php if (isset($_SESSION['id'])): ?>
                     <h3>Здравствуйте, <?= $_SESSION['name'] ?></h3>

@@ -81,11 +81,22 @@ class Post extends Config
         if(isset($_POST['buyTicket'])){
             $ticket = \R::dispense('ticket');
             $ticket->film_id = $_POST['film_id'];
+            $ticket->user_id = $_SESSION['id'];
             $ticket->hall = $_POST['hall'];
             $ticket->type = $_POST['type'];
             \R::store($ticket);
-
         }
     }
 
+    public static function findTicketsById(){
+        if(isset($_SESSION['id'])){
+            $tickets = \R::convertToBeans('ticket',
+                \R::getAll("SELECT ticket.id, ticket.user_id, film.name, 
+            film.price_child, film.price_adult, film.show_date,
+            film.show_time, ticket.hall, ticket.type FROM ticket 
+            INNER JOIN film ON ticket.film_id = film.id WHERE ticket.user_id = :user_id",
+                ["user_id" => $_SESSION["id"]]));
+            return $tickets;
+        }
+    }
 }

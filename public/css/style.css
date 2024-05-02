@@ -11,6 +11,16 @@
     font-size: 16px;
 }
 
+
+.white-ticket {
+    display: flex;
+    color: #000000 !important;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-top: 2px solid black;
+}
+
+
 label {
     color: #000 !important;
 }
@@ -68,6 +78,10 @@ input[type="file"]::file-selector-button:hover {
     background-color: rgb(179, 171, 159);
 }
 
+.film-name {
+    text-align: left;
+}
+
 .back-kino {
     max-width: 1200px;
     margin: 0 auto;
@@ -80,9 +94,32 @@ input[type="file"]::file-selector-button:hover {
     max-width: 1200px;
     margin: 0 auto;
     background-color: rgb(216, 210, 201);
-    height: 100vh;
     margin-bottom: 10px;
     border-radius: 5px;
+}
+
+.back-kino4 {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgb(216, 210, 201);
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.back-kino3 {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgb(216, 210, 201);
+    border-radius: 5px;
+}
+
+.back-kino5 {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgb(216, 210, 201);
+    border-radius: 5px;
+    display: flex;
 }
 
 .logo-container {
@@ -223,7 +260,6 @@ input[type="file"]::file-selector-button:hover {
     padding: 20px 0;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
-    margin-top: 50px;
 }
 
 .movie-cover {
@@ -238,17 +274,20 @@ input[type="file"]::file-selector-button:hover {
 
 .movie-info {
     flex: 1;
-    margin-bottom: 180px;
 }
 
 .movie-description .ticket {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #000000;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     align-self: flex-end;
+}
+
+.movie-description .ticket:hover {
+    background-color: rgb(179, 171, 159);
 }
 
 .movie-cover .poster-img {
@@ -820,6 +859,14 @@ body {
 /*# sourceMappingURL=styles.css.map */
 
 
+.container3 {
+    width: 320px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(253, 253, 253, 0.1);
+    margin-right: auto;
+}
+
 /*Login*/
 .login-body {
     display: flex;
@@ -880,7 +927,7 @@ input {
 }
 
 input:focus {
-    border-color: #e37222;
+    border-color: #000000;
     outline: none;
 }
 
@@ -890,7 +937,7 @@ input:focus {
 .button-back {
     padding: 10px;
     width: 100%;
-    background-color: #e37222;
+    background-color: #000000;
     color: #f0f0f0;
     border: none;
     border-radius: 5px;
@@ -907,7 +954,7 @@ input:focus {
 .button-reg:hover,
 .button-register:hover,
 .button-back:hover {
-    background-color: #be5f16;
+    background-color: rgb(189, 180, 166);
 }
 
 h1 {

@@ -93,7 +93,7 @@ class Post extends Config
         if(isset($_SESSION['id'])){
             $tickets = \R::convertToBeans('ticket',
                 \R::getAll("SELECT ticket.id, ticket.user_id, film.name, 
-            film.price_child, film.price_adult, film.show_date, film.image,
+            film.price_child, film.price_adult, film.duration, film.show_date, film.image,
             film.show_time, ticket.hall, ticket.type, ticket.code FROM ticket 
             INNER JOIN film ON ticket.film_id = film.id WHERE ticket.user_id = :user_id ORDER BY id DESC",
                 ["user_id" => $_SESSION["id"]]));

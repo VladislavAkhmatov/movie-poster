@@ -33,13 +33,14 @@
                         <button name="logout" class="login-button">Выйти</button>
                     </form>
                 <?php else: ?>
-                    <form action="/login" method="post">
+                    <form action="auth/login" method="post">
                         <button name="login" class="login-button">Войти</button>
                     </form>
                 <?php endif; ?>
-
-                <?php if ($_SESSION['role'] == "admin" && $_SERVER['REQUEST_URI'] != "/film/create"): ?>
-                    <a href="/film/create" class="login-button">Добавить фильм</a>
+                <?php if(isset($_SESSION['role'])): ?>
+                    <?php if ($_SESSION['role'] == "admin" && $_SERVER['REQUEST_URI'] != "/film/create"): ?>
+                        <a href="/film/create" class="login-button">Добавить фильм</a>
+                    <?php endif; ?>
                 <?php endif; ?>
             </div>
         </div>

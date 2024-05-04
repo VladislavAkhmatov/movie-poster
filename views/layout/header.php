@@ -18,8 +18,13 @@
             </div>
             <?php if(isset($_SESSION['id'])): ?>
             <div class="logo">
-                <a href="/film/mytickets" class="login-button">Мои билеты</a>
+                <a href="/mytickets" class="login-button">Мои билеты</a>
             </div>
+                <?php if(isset($_POST['buyTicket'])): ?>
+                    <div class="logo">
+                        <h3 style="margin-left: 50px;color: green"">Билет успешно добавлен</h3>
+                    </div>
+                <?php endif; ?>
             <?php endif; ?>
             <div class="btn-header">
                 <?php if (isset($_SESSION['id'])): ?>

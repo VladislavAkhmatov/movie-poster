@@ -15,6 +15,7 @@
     }
   ],
   "require": {
+    "endroid/qr-code": "^4.8"
   }
 
 }

@@ -1,7 +1,7 @@
 .ticket {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    max-width: 1000rem;
+    max-width: 350px;
     margin: auto;
     margin-top: 2rem;
 
@@ -391,6 +391,7 @@ input[type="file"]::file-selector-button:hover {
     padding: 10px;
 }
 
+
 .movie-cover img {
     width: 50%;
 }
@@ -436,6 +437,8 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: right;
+    font-family: "helvetica";
+    font-size: 14px;
 }
 
 .page-header {
@@ -983,7 +986,7 @@ body {
 
 
 .container3 {
-    width: 320px;
+    width: 400px;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(253, 253, 253, 0.1);

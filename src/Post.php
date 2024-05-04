@@ -31,8 +31,8 @@ class Post extends Config
                 header("Location: auth/login?mes=ok");
                 exit();
             }else{
-                echo "Пользователь с таким email уже существует";
-                header("Location: auth/login?mes=err");
+
+                header("Location: auth/login?mes=errAuth");
                 exit();
             }
         }
@@ -68,7 +68,7 @@ class Post extends Config
                 $_SESSION['full_name'] = $user->lastname . ' ' .
                     $user->firstname . ' ' . $user->patronymic;
                 $_SESSION['role'] = $user->role;
-                header('Location: /?mes=ok');
+                header('Location: /');
             }
             else{
                 header('Location: /auth/login?auth=err');
@@ -84,6 +84,7 @@ class Post extends Config
             $ticket->user_id = $_SESSION['id'];
             $ticket->hall = $_POST['hall'];
             $ticket->type = $_POST['type'];
+            $ticket->code = $_POST['code'];
             \R::store($ticket);
         }
     }
@@ -92,9 +93,9 @@ class Post extends Config
         if(isset($_SESSION['id'])){
             $tickets = \R::convertToBeans('ticket',
                 \R::getAll("SELECT ticket.id, ticket.user_id, film.name, 
-            film.price_child, film.price_adult, film.show_date,
-            film.show_time, ticket.hall, ticket.type FROM ticket 
-            INNER JOIN film ON ticket.film_id = film.id WHERE ticket.user_id = :user_id",
+            film.price_child, film.price_adult, film.show_date, film.image,
+            film.show_time, ticket.hall, ticket.type, ticket.code FROM ticket 
+            INNER JOIN film ON ticket.film_id = film.id WHERE ticket.user_id = :user_id ORDER BY id DESC",
                 ["user_id" => $_SESSION["id"]]));
             return $tickets;
         }

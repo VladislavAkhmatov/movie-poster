@@ -1,8 +1,11 @@
 <?php
 
 use App\Get;
-
-$films = Get::findFilmsByDate($_GET['date']);
+if(isset($_GET['date'])){
+    $films = Get::findFilmsByDate($_GET['date']);
+}else{
+    $films = '';
+}
 ?>
 
 
@@ -29,6 +32,7 @@ $films = Get::findFilmsByDate($_GET['date']);
             <img src="../../public/img/cat.png" alt="">
         </div>
     <?php else: ?>
+    <?php if($films): ?>
         <?php foreach ($films as $film): ?>
             <div class="back-kino3">
                 <div class="movie-description">
@@ -42,7 +46,7 @@ $films = Get::findFilmsByDate($_GET['date']);
                         <p>Дата выпуска: <?= $film->released ?></p>
                         <p>Страна: <?= $film->country ?></p>
                         <p>Жанр: <?= $film->genre ?></p>
-                        <h1>Время: <?= $film->show_time ?></h1>
+                        <h3>Время: <?= $film->show_time ?></h3>
 
                         <?php if (isset($_SESSION['id']) and $_SESSION['role'] != "admin"): ?>
                             <form action="/film" method="get">
@@ -56,6 +60,6 @@ $films = Get::findFilmsByDate($_GET['date']);
                 </div>
             </div>
         <?php endforeach; ?>
-
+    <?php endif; ?>
     </div>
 <?php endif; ?>

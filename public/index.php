@@ -5,7 +5,7 @@ require_once __DIR__ . "/../vendor/autoload.php";
 use App\Routing;
 use App\Config;
 use App\Post;
-use App\Get;
+
 Config::Start();
 Config::checkAuth();
 
@@ -13,23 +13,20 @@ if(!isset($_SESSION['id'])) {
     Routing::Route('/auth/register', 'auth/register');
     Routing::Route('/auth/login', 'auth/login', [Post::register()]);
 }
-
 require_once "../views/layout/header.php";
 
 Routing::Route('/', 'main/main', [Post::login(), Post::createFilm()]);
 if(isset($_SESSION['id'])){
     Routing::Route('/film', 'main/film');
-    Routing::Route('/film/ticket', 'main/ticket');
-    Routing::Route('/film/mytickets', 'main/mytickets', [Post::buyTicket()]);
+    Routing::Route('/ticket', 'main/ticket');
+    Routing::Route('/mytickets', 'main/mytickets', [Post::buyTicket()]);
     if($_SESSION['role'] == "admin"){
         Routing::Route('/film/create', 'main/create');
     }
-}else{
-
+    ob_clean();
+    Routing::Route('/qr', 'main/qr');
 }
-
 Routing::Error();
 ob_end_flush();
-
 require_once "../views/layout/footer.php";
 

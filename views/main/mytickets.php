@@ -6,7 +6,10 @@ $tickets = Post::findTicketsById();
 
 <div class="back-kino4">
     <?php foreach ($tickets as $ticket): ?>
-        <div class="white-ticket" style="color:white">
+        <div class="white-ticket">
+            <div class="movie-cover">
+                <img class="poster-img" src="../../public/img/posters/<?= $ticket->image ?>" alt="Обложка кино">
+            </div>
             Название фильма: <?php echo $ticket->name; ?><br>
             Дата показа: <?php echo $ticket->show_date; ?><br>
             Время показа: <?php echo $ticket->show_time; ?><br>
@@ -17,33 +20,14 @@ $tickets = Post::findTicketsById();
             <?php elseif ($ticket->type == "Взрослый"): ?>
                 Цена: <?php echo $ticket->price_adult; ?><br>
             <?php endif; ?>
+            Код билета: <?= $ticket->code?>
+            <form action="qr" method="get">
+                <input type="hidden" name="code" value="<?= $ticket->code ?>">
+                <button type="submit">ПОКАЗАТЬ QR КОД</button>
+            </form>
             <br>
         </div>
     <?php endforeach; ?>
 </div>
 
 
-<!-- Твой старый код -->
-<!--
-<div class="back-kino4">
-    <div class="white-ticket">
-    <?php
-    /*
-    foreach ($tickets as $ticket) {
-        echo 'Название фильма: ' . $ticket->name . '<br>';
-        echo 'Дата показа: ' . $ticket->show_date . '<br>';
-        echo 'Время показа: ' . $ticket->show_time . '<br>';
-        echo 'Зал: ' . $ticket->hall . '<br>';
-        echo 'Тип: ' . $ticket->type . '<br>';
-        if ($ticket->type == "Детский") {
-            echo 'Цена: ' . $ticket->price_child . '<br>';
-        } elseif ($ticket->type == "Взрослый") {
-            echo 'Цена: ' . $ticket->price_adult . '<br>';
-        }
-        echo '<br>';
-    }
-    */
-    ?>
-    </div>
-</div>
--->

@@ -1,6 +1,12 @@
+<?php
+    if(!isset($_SESSION['id'])){
+        $_SESSION['role'] = '';
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +22,7 @@
                 <img src="/img/kino.png" alt="Логотип">
                 </a>
             </div>
-            <?php if(isset($_SESSION['id'])): ?>
+            <?php if(isset($_SESSION['id']) && $_SESSION['role'] != "admin"): ?>
             <div class="logo">
                 <a href="/mytickets" class="login-button">Мои билеты</a>
             </div>

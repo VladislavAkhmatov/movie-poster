@@ -86,6 +86,7 @@ class Post extends Config
             $ticket->type = $_POST['type'];
             $ticket->code = $_POST['code'];
             \R::store($ticket);
+
         }
     }
 

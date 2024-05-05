@@ -25,7 +25,8 @@ if(isset($_SESSION['id'])){
     ob_clean();
     Routing::Route('/qr', 'main/qr');
 }
+
+
+require_once "../views/layout/footer.php";
 Routing::Error();
 ob_end_flush();
-require_once "../views/layout/footer.php";
-

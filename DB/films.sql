@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 04 2024 г., 08:50
+-- Время создания: Май 05 2024 г., 05:55
 -- Версия сервера: 8.0.19
 -- Версия PHP: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -51,7 +50,13 @@ INSERT INTO `film` (`id`, `name`, `duration`, `director`, `released`, `country`,
 (1, 'Дюна', 180, 'Дени Вильнёв', 2021, 'США', 'Фантастика', 'duna.jpg', 1500, 2000, NULL, NULL),
 (2, 'Аватар', 162, 'Джеймс Кэмерон', 2009, 'США', 'фантастика, боевик, драма, приключения', 'avatar.jpg', 1500, 2000, NULL, NULL),
 (20, 'Кабанэри железной крепости', 384, ' Хироюки Танака, Хиронори Аояги, Хитоми Эдзоэ', 2016, 'Япония', ' аниме, мультфильм, боевик, фэнтези, ужасы', 'Kabaneri_of_the_Iron_Fortress_promotional_image.jpg', 800, 1600, '2024-05-02', '11:45:00'),
-(21, 'Кабанэри железной крепости', 384, ' Хироюки Танака, Хиронори Аояги, Хитоми Эдзоэ', 2016, 'Япония', ' аниме, мультфильм, боевик, фэнтези, ужасы', 'Kabaneri_of_the_Iron_Fortress_promotional_image.jpg', 900, 1600, '2024-05-02', '16:00:00');
+(21, 'Кабанэри железной крепости', 384, ' Хироюки Танака, Хиронори Аояги, Хитоми Эдзоэ', 2016, 'Япония', ' аниме, мультфильм, боевик, фэнтези, ужасы', 'Kabaneri_of_the_Iron_Fortress_promotional_image.jpg', 900, 1600, '2024-05-02', '16:00:00'),
+(22, 'Кабанэри железной крепости', 384, ' Хироюки Танака, Хиронори Аояги, Хитоми Эдзоэ', 2016, 'Япония', ' аниме, мультфильм, боевик, фэнтези, ужасы', 'Kabaneri_of_the_Iron_Fortress_promotional_image.jpg', 900, 1800, '2024-05-02', '20:00:00'),
+(23, 'Приключения панды', 84, 'Александр Мананов', 2024, 'Дания', 'Хоррор', '1.png', 800, 1600, '2024-05-05', '16:00:00'),
+(24, 'Лай', 85, 'Олжас Ибраев', 2024, 'Казахстан', 'Триллер', '2.jpg', 800, 1600, '2024-05-05', '13:00:00'),
+(25, 'Таро: Карта смерти', 92, 'Спенсер Коэн, Анна Ройс', 2024, 'США', 'Ужасы', '3.png', 800, 1600, '2024-05-05', '00:05:00'),
+(26, 'Пушистые спасатели: Новая команда', 81, 'Рикард Куссо, Таня Венсан', 2024, 'Австралия', 'Мультфильм', '4.png', 800, 1600, '2024-05-05', '10:10:00'),
+(27, 'Біз екеуміз', 87, 'Ернар Нұрғалиев', 2024, 'Казахстан', 'Комедия', '5.png', 800, 1600, '2024-05-05', '17:20:00');
 
 -- --------------------------------------------------------
 
@@ -66,7 +71,7 @@ CREATE TABLE `ticket` (
   `hall` varchar(255) NOT NULL,
   `count` int DEFAULT '1',
   `type` varchar(255) NOT NULL,
-  `code` int DEFAULT NULL
+  `code` int UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -74,9 +79,36 @@ CREATE TABLE `ticket` (
 --
 
 INSERT INTO `ticket` (`id`, `user_id`, `film_id`, `hall`, `count`, `type`, `code`) VALUES
-(7, 22, 20, 'Зал 1', 1, 'Детский', 194241407),
-(8, 22, 21, 'Зал 2', 1, 'Взрослый', 1702028930),
-(17, 22, 20, 'Зал 2', 1, 'Детский', 1239644903);
+(1, 22, 1, 'Зал 1', 1, 'Детский', NULL),
+(3, 22, 20, 'Зал 2', 1, 'Взрослый', NULL),
+(4, 22, 20, 'Зал 2', 1, 'Взрослый', NULL),
+(5, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(6, 22, 20, 'Зал 1', 1, 'Взрослый', NULL),
+(7, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(8, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(9, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(10, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(11, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(12, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(13, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(14, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(15, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(16, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(17, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(18, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(19, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(20, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(21, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(22, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(23, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(24, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(25, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(26, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(27, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(28, 22, 20, 'Зал 1', 1, 'Детский', NULL),
+(29, 22, 20, 'Зал 2', 1, 'Взрослый', NULL),
+(30, 22, 20, 'Зал 1', 1, 'Детский', 149180534),
+(31, 22, 25, 'Зал 3', 1, 'Взрослый', 1489180942);
 
 -- --------------------------------------------------------
 
@@ -110,8 +142,7 @@ INSERT INTO `user` (`id`, `lastname`, `firstname`, `patronymic`, `login`, `pass`
 (23, '123', '123', '123', '123456@local.kz', '$2y$10$zrHpy/zYXJjPLjA4HFAbcO7Qn71HnH6u1FsNQrTQSy3xHnfKeHr8e', 'user'),
 (24, 'test', 'test', 'test', 'test1234@mail.ru', '$2y$10$qHhbkQ3eH1OcP0gGqkyc2eAkOUmxc29HyTU4aaiaxBxtJSd9Yfs6i', 'user'),
 (25, 'test1234', 'test1234', 'test1234', 'test1234@local.kz', '$2y$10$Z8qa0OlwaEA/9ZMMJvx5pec9odWvd1PYRW2h.14tbODq8d1cE/Wd.', 'user'),
-(26, 'admin', 'admin', 'admin', 'admin@local.kz', '$2y$10$Z8qa0OlwaEA/9ZMMJvx5pec9odWvd1PYRW2h.14tbODq8d1cE/Wd.', 'admin'),
-(27, 'testFinal', 'testFinal', 'testFinal', 'testFinal@local.kz', '$2y$10$qMRublboDT5dG77MS0IUuuruCvPjp0wiGpxDYYDBYsMOpm5GZ8FKi', 'user');
+(26, 'admin', 'admin', 'admin', 'admin@local.kz', '$2y$10$Z8qa0OlwaEA/9ZMMJvx5pec9odWvd1PYRW2h.14tbODq8d1cE/Wd.', 'admin');
 
 --
 -- Индексы сохранённых таблиц
@@ -146,19 +177,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT для таблицы `film`
 --
 ALTER TABLE `film`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT для таблицы `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

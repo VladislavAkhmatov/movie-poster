@@ -1,11 +1,11 @@
 <?php
 use App\Post;
-
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    header('Location: /mytickets');
+}
 $tickets = Post::findTicketsById();
 ?>
-
 <?php foreach ($tickets as $ticket): ?>
-
     <article class="ticket">
         <header class="ticket__wrapper">
             <div class="ticket__header">
@@ -53,5 +53,4 @@ $tickets = Post::findTicketsById();
             <button type="submit">ПОКАЗАТЬ QR КОД </button>
         </form>
     </article>
-
 <?php endforeach; ?>

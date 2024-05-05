@@ -6,6 +6,9 @@ if(isset($_GET['date'])){
 }else{
     $films = '';
 }
+if(!isset($_SESSION['role'])){
+    $_SESSION['role'] = '';
+}
 ?>
 
 
@@ -47,15 +50,18 @@ if(isset($_GET['date'])){
                         <p>Страна: <?= $film->country ?></p>
                         <p>Жанр: <?= $film->genre ?></p>
                         <h3>Время: <?= $film->show_time ?></h3>
-
-                        <?php if (isset($_SESSION['id']) and $_SESSION['role'] != "admin"): ?>
+                        <br>
+                        <?php if (isset($_SESSION['id']) && $_SESSION['role'] != "admin"): ?>
                             <form action="/film" method="get">
-                                <button class="ticket">Купить билет</button>
+                                <button class="login-button2">Купить билет</button>
                                 <input name="id" type="hidden" value="<?= $film->id ?>">
                             </form>
-                        <?php elseif ($_SESSION['role'] != "admin"): ?>
+                        <?php endif; ?>
+                        <br>
+                        <?php if (!isset($_SESSION['id']) && $_SESSION['role'] != "admin"): ?>
                             <p>Войдите для покупки билета</p>
                         <?php endif; ?>
+
                     </div>
                 </div>
             </div>

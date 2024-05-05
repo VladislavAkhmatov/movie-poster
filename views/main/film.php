@@ -14,15 +14,15 @@ $film = Get::findFilmById(Helper::getId());
         <form action="/mytickets" method="POST" class="login-form">
             <?php
             echo '<b>Название фильма: </b>' . $film->name . '<br><br>';
-            echo '<b>Продолжительность: </b>' .$film->duration . ' мин' . '<br><br>';
-            echo '<b>Режиссер(ы): </b>' .$film->director . '<br><br>';
-            echo '<b>Год выпуска: </b>' .$film->released . '<br><br>';
-            echo '<b>Страна: </b>' .$film->country . '<br><br>';
-            echo '<b>Жанр(ы): </b>' .$film->genre . '<br><br>';
+            echo '<b>Продолжительность: </b>' . $film->duration . ' мин' . '<br><br>';
+            echo '<b>Режиссер(ы): </b>' . $film->director . '<br><br>';
+            echo '<b>Год выпуска: </b>' . $film->released . '<br><br>';
+            echo '<b>Страна: </b>' . $film->country . '<br><br>';
+            echo '<b>Жанр(ы): </b>' . $film->genre . '<br><br>';
             echo '<b>Стоимость детского билета </b>' . $film->price_child . '<br><br>';
             echo '<b>Стоимость взрослого билета </b>' . $film->price_adult . '<br><br>';
-            echo '<b>Дата показа: </b>' .$film->show_date . '<br><br>';
-            echo '<b>Время показа: </b>' .$film->show_time . '<br>' . '<br>';
+            echo '<b>Дата показа: </b>' . $film->show_date . '<br><br>';
+            echo '<b>Время показа: </b>' . $film->show_time . '<br>' . '<br>';
             ?>
             <select name="hall">
                 <option value="Зал 1">Зал 1</option>
